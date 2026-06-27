@@ -230,7 +230,7 @@
 </footer>
 
 <script>
-const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your Anthropic API key from console.anthropic.com
+const PROXY_URL = 'https://ignitool-proxy.csmith3580.workers.dev/'; // Replace with your Cloudflare Worker URL e.g. https://ignitool-proxy.yoursubdomain.workers.dev
 
 let selectedStyle = 'bullet';
 let selectedLength = 'short';
@@ -285,13 +285,10 @@ async function summarize() {
   document.getElementById('output-wrap').style.display = 'none';
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch(PROXY_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': API_KEY,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
