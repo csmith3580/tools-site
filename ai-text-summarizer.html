@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Text Summarizer — Ignitool | Summarize Any Text Instantly</title>
+<meta name="description" content="Free AI text summarizer. Paste any article, essay, or document and get a clean bullet-point summary in seconds. No sign-up required. Powered by AI.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Free AI Text Summarizer — Ignitool">
+<meta property="og:description" content="Paste any text and get an instant AI-powered summary. Free, no sign-up, results in seconds.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#0f0f0f;--ink2:#444;--muted:#888;--border:#e4e4e4;
+    --bg:#fafaf8;--surface:#ffffff;--accent:#2563eb;
+    --accent-light:#eff4ff;--green:#16a34a;--green-light:#f0fdf4;
+    --red:#dc2626;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.07);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6}
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--ink);text-decoration:none;letter-spacing:-.5px}
+  .logo span{color:var(--accent)}
+  .breadcrumb{font-size:13px;color:var(--muted)}
+  .breadcrumb a{color:var(--accent);text-decoration:none}
+  .page{max-width:860px;margin:0 auto;padding:48px 24px 80px}
+  .eyebrow{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,5vw,42px);font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
+  .subtitle{font-size:16px;color:var(--ink2);margin-bottom:32px}
+  .ad-zone{background:#f5f5f5;border:1px dashed #ccc;border-radius:var(--radius);text-align:center;font-size:12px;color:var(--muted);margin-bottom:32px;height:90px;display:flex;align-items:center;justify-content:center}
+
+  /* TOOL */
+  .tool-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:24px}
+  .tool-header{padding:16px 20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .tool-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .char-count{font-size:12px;color:var(--muted)}
+  textarea{width:100%;min-height:200px;padding:14px 20px;border:none;border-bottom:1px solid var(--border);resize:vertical;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:var(--surface);outline:none;line-height:1.7;display:block}
+  textarea::placeholder{color:var(--muted)}
+
+  /* OPTIONS ROW */
+  .options-row{display:flex;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border);flex-wrap:wrap;align-items:center;background:#fafaf8}
+  .opt-label{font-size:12px;font-weight:500;color:var(--ink2)}
+  .opt-btns{display:flex;gap:6px;flex-wrap:wrap}
+  .opt-btn{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink2);font-family:'Inter',sans-serif;transition:all .12s}
+  .opt-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .opt-btn:hover:not(.active){border-color:var(--accent);color:var(--accent)}
+
+  /* SUBMIT */
+  .submit-row{padding:14px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .submit-btn{font-size:14px;font-weight:600;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .15s;display:flex;align-items:center;gap:8px}
+  .submit-btn:hover{opacity:.9}
+  .submit-btn:disabled{opacity:.5;cursor:not-allowed}
+  .clear-btn{font-size:13px;padding:10px 18px;border-radius:var(--radius);border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);font-family:'Inter',sans-serif}
+  .clear-btn:hover{color:var(--red);border-color:var(--red)}
+  .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* OUTPUT */
+  .output-wrap{display:none;border-top:1px solid var(--border)}
+  .output-header{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;background:#fafaf8;border-bottom:1px solid var(--border)}
+  .output-title{font-size:13px;font-weight:600;color:var(--ink)}
+  .copy-btn{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--accent);font-family:'Inter',sans-serif}
+  .copy-btn:hover{background:var(--accent-light)}
+  .output-body{padding:20px;font-size:15px;color:var(--ink2);line-height:1.8;white-space:pre-wrap}
+  .output-body ul{padding-left:20px}
+  .output-body li{margin-bottom:8px}
+
+  /* ERROR */
+  .error-box{display:none;margin:16px 20px;padding:12px 16px;background:#fef2f2;border:1px solid #fca5a5;border-radius:var(--radius);font-size:13px;color:var(--red)}
+
+  /* STATS */
+  .stats-strip{display:flex;gap:20px;padding:10px 20px;border-top:1px solid var(--border);background:#fafaf8;flex-wrap:wrap}
+  .stat-item{font-size:12px;color:var(--muted)}
+  .stat-item strong{color:var(--ink);font-weight:600}
+
+  /* HOW IT WORKS */
+  .how-section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:32px}
+  .how-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:16px}
+  .how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+  .how-step{text-align:center}
+  .how-num{width:36px;height:36px;border-radius:50%;background:var(--accent-light);color:var(--accent);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+  .how-step-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .how-step-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+  /* FAQ */
+  .faq{margin-bottom:48px}
+  .faq h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:20px;color:var(--ink)}
+  .faq-item{border-top:1px solid var(--border);padding:16px 0}
+  .faq-item:last-child{border-bottom:1px solid var(--border)}
+  .faq-q{font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+  .faq-q span{color:var(--muted);font-size:18px;font-weight:400;flex-shrink:0}
+  .faq-a{font-size:14px;color:var(--ink2);line-height:1.65;display:none;margin-top:8px}
+  .faq-a.open{display:block}
+
+  /* RELATED */
+  .related-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;margin-bottom:14px;color:var(--ink)}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:48px}
+  .related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;text-decoration:none;display:block;transition:border-color .15s}
+  .related-card:hover{border-color:var(--accent)}
+  .related-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
+  .related-desc{font-size:12px;color:var(--muted)}
+
+  footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center}
+  footer p{font-size:13px;color:var(--muted)}
+  .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:10px;flex-wrap:wrap}
+  .footer-links a{font-size:13px;color:var(--muted);text-decoration:none}
+  .footer-links a:hover{color:var(--ink)}
+
+  @media(max-width:600px){.options-row{flex-direction:column;align-items:flex-start}.how-steps{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">Igni<span>tool</span></a>
+  <span class="breadcrumb"><a href="/">Home</a> / AI Text Summarizer</span>
+</nav>
+
+<div class="page">
+  <div class="eyebrow">AI Writing Tool — Free, No Sign-Up</div>
+  <h1>AI Text Summarizer</h1>
+  <p class="subtitle">Paste any article, essay, report, or document. Get a clean, accurate summary in seconds — powered by AI.</p>
+
+  <div class="ad-zone">[ Google AdSense — 728×90 Leaderboard — Replace with your AdSense code ]</div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-label">Your text</span>
+      <span class="char-count" id="char-count">0 characters</span>
+    </div>
+    <textarea id="input" placeholder="Paste your article, essay, email, report, or any text here…" spellcheck="false"></textarea>
+
+    <div class="options-row">
+      <span class="opt-label">Summary style:</span>
+      <div class="opt-btns" id="style-btns">
+        <button class="opt-btn active" data-style="bullet">Bullet points</button>
+        <button class="opt-btn" data-style="paragraph">Paragraph</button>
+        <button class="opt-btn" data-style="tldr">TL;DR (1 sentence)</button>
+        <button class="opt-btn" data-style="keypoints">Key takeaways</button>
+      </div>
+    </div>
+
+    <div class="options-row">
+      <span class="opt-label">Length:</span>
+      <div class="opt-btns" id="length-btns">
+        <button class="opt-btn active" data-length="short">Short</button>
+        <button class="opt-btn" data-length="medium">Medium</button>
+        <button class="opt-btn" data-length="detailed">Detailed</button>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button class="submit-btn" id="submit-btn" onclick="summarize()">
+        <div class="spinner" id="spinner"></div>
+        <span id="btn-text">Summarize text</span>
+      </button>
+      <button class="clear-btn" onclick="clearAll()">Clear</button>
+    </div>
+
+    <div class="error-box" id="error-box"></div>
+
+    <div class="output-wrap" id="output-wrap">
+      <div class="output-header">
+        <span class="output-title">Summary</span>
+        <button class="copy-btn" onclick="copyOutput()">Copy summary</button>
+      </div>
+      <div class="output-body" id="output-body"></div>
+      <div class="stats-strip" id="stats-strip"></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div class="how-title">How it works</div>
+    <div class="how-steps">
+      <div class="how-step"><div class="how-num">1</div><div class="how-step-title">Paste your text</div><div class="how-step-desc">Any length — articles, reports, emails, essays</div></div>
+      <div class="how-step"><div class="how-num">2</div><div class="how-step-title">Choose your style</div><div class="how-step-desc">Bullet points, paragraph, TL;DR, or key takeaways</div></div>
+      <div class="how-step"><div class="how-num">3</div><div class="how-step-title">Click summarize</div><div class="how-step-desc">AI reads and condenses your text in seconds</div></div>
+      <div class="how-step"><div class="how-num">4</div><div class="how-step-title">Copy and use</div><div class="how-step-desc">Paste your summary anywhere — free, no limits</div></div>
+    </div>
+  </div>
+
+  <div class="ad-zone">[ Google AdSense — 300×250 Rectangle — Replace with your AdSense code ]</div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is an AI text summarizer? <span>+</span></div>
+      <div class="faq-a">An AI text summarizer is a tool that uses artificial intelligence to read a piece of text and condense it into a shorter version that captures the main points. Instead of reading a 2,000-word article, you can get the key ideas in 5 bullet points in seconds. Our summarizer uses a large language model to understand context and meaning, not just extract sentences.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How long can the text be? <span>+</span></div>
+      <div class="faq-a">There is no strict character limit, but for best results paste text between 200 and 10,000 words. Very short texts (under 100 words) may not have enough content to summarize meaningfully. Very long texts (over 15,000 words) may be truncated by the AI model's context window.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is this AI text summarizer free? <span>+</span></div>
+      <div class="faq-a">Yes, completely free. No account, no sign-up, and no daily usage limits. Ignitool is supported by advertising, which keeps all tools free for everyone.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What types of text can I summarize? <span>+</span></div>
+      <div class="faq-a">You can summarize almost any type of text — news articles, academic papers, blog posts, emails, meeting notes, legal documents, book chapters, research reports, and more. The AI adapts its summary style to the type of content it detects.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my text stored or saved? <span>+</span></div>
+      <div class="faq-a">No. Your text is sent to the AI model only to generate the summary and is not stored on our servers. We do not log, save, or use your text for any other purpose. Once you close the page, your input is gone.</div>
+    </div>
+  </div>
+
+  <div class="related-title">Related tools</div>
+  <div class="related-grid">
+    <a class="related-card" href="paraphrasing-tool.html"><div class="related-name">AI Paraphrasing Tool</div><div class="related-desc">Rewrite text in any tone</div></a>
+    <a class="related-card" href="grammar-checker.html"><div class="related-name">AI Grammar Checker</div><div class="related-desc">Fix grammar and spelling instantly</div></a>
+    <a class="related-card" href="word-counter.html"><div class="related-name">Word Counter</div><div class="related-desc">Count words, characters & reading time</div></a>
+    <a class="related-card" href="blog-title-generator.html"><div class="related-name">Blog Title Generator</div><div class="related-desc">10 SEO-optimized titles from any topic</div></a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy policy</a>
+    <a href="/terms.html">Terms of use</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+  <p>© 2026 Ignitool. Free AI tools. Ignite your productivity.</p>
+</footer>
+
+<script>
+const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your Anthropic API key from console.anthropic.com
+
+let selectedStyle = 'bullet';
+let selectedLength = 'short';
+
+// Style buttons
+document.getElementById('style-btns').addEventListener('click', e => {
+  const btn = e.target.closest('.opt-btn');
+  if (!btn) return;
+  document.querySelectorAll('#style-btns .opt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedStyle = btn.dataset.style;
+});
+
+// Length buttons
+document.getElementById('length-btns').addEventListener('click', e => {
+  const btn = e.target.closest('.opt-btn');
+  if (!btn) return;
+  document.querySelectorAll('#length-btns .opt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedLength = btn.dataset.length;
+});
+
+// Char count
+document.getElementById('input').addEventListener('input', function() {
+  document.getElementById('char-count').textContent = this.value.length.toLocaleString() + ' characters';
+});
+
+function buildPrompt(text) {
+  const styleMap = {
+    bullet: 'as a clean bulleted list of key points (use • for bullets)',
+    paragraph: 'as a concise paragraph summary',
+    tldr: 'as a single TL;DR sentence of no more than 30 words',
+    keypoints: 'as 3-5 numbered key takeaways the reader should remember'
+  };
+  const lengthMap = {
+    short: 'Keep it brief — 3-5 points or 2-3 sentences maximum.',
+    medium: 'Aim for 5-8 points or a medium-length paragraph.',
+    detailed: 'Be thorough — cover all major points and supporting details.'
+  };
+  return `Summarize the following text ${styleMap[selectedStyle]}. ${lengthMap[selectedLength]} Only output the summary itself — no preamble, no "Here is a summary:", just the summary content.\n\nText to summarize:\n\n${text}`;
+}
+
+async function summarize() {
+  const text = document.getElementById('input').value.trim();
+  if (!text || text.length < 50) {
+    showError('Please paste at least 50 characters of text to summarize.');
+    return;
+  }
+
+  setLoading(true);
+  hideError();
+  document.getElementById('output-wrap').style.display = 'none';
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: buildPrompt(text) }]
+      })
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      throw new Error(err.error?.message || 'API error — please try again.');
+    }
+
+    const data = await response.json();
+    const summary = data.content[0].text.trim();
+
+    // Render output
+    const outputBody = document.getElementById('output-body');
+    outputBody.innerHTML = formatOutput(summary);
+
+    // Stats
+    const originalWords = text.split(/\s+/).length;
+    const summaryWords = summary.split(/\s+/).length;
+    const reduction = Math.round((1 - summaryWords / originalWords) * 100);
+    document.getElementById('stats-strip').innerHTML = `
+      <span class="stat-item">Original: <strong>${originalWords.toLocaleString()} words</strong></span>
+      <span class="stat-item">Summary: <strong>${summaryWords.toLocaleString()} words</strong></span>
+      <span class="stat-item">Reduced by: <strong>${reduction}%</strong></span>
+    `;
+
+    document.getElementById('output-wrap').style.display = 'block';
+    document.getElementById('output-wrap').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  } catch (err) {
+    showError(err.message || 'Something went wrong. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+}
+
+function formatOutput(text) {
+  // Convert markdown-style bullets to HTML
+  const lines = text.split('\n');
+  let html = '';
+  let inList = false;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('•') || trimmed.startsWith('-') || trimmed.startsWith('*')) {
+      if (!inList) { html += '<ul>'; inList = true; }
+      html += `<li>${trimmed.replace(/^[•\-\*]\s*/, '')}</li>`;
+    } else if (/^\d+\./.test(trimmed)) {
+      if (!inList) { html += '<ol>'; inList = true; }
+      html += `<li>${trimmed.replace(/^\d+\.\s*/, '')}</li>`;
+    } else {
+      if (inList) { html += inList === true ? '</ul>' : '</ol>'; inList = false; }
+      if (trimmed) html += `<p style="margin-bottom:8px">${trimmed}</p>`;
+    }
+  }
+  if (inList) html += '</ul>';
+  return html || `<p>${text}</p>`;
+}
+
+function copyOutput() {
+  const text = document.getElementById('output-body').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = 'Copy summary', 2000);
+  });
+}
+
+function clearAll() {
+  document.getElementById('input').value = '';
+  document.getElementById('char-count').textContent = '0 characters';
+  document.getElementById('output-wrap').style.display = 'none';
+  hideError();
+  document.getElementById('input').focus();
+}
+
+function setLoading(on) {
+  const btn = document.getElementById('submit-btn');
+  const spinner = document.getElementById('spinner');
+  const text = document.getElementById('btn-text');
+  btn.disabled = on;
+  spinner.style.display = on ? 'block' : 'none';
+  text.textContent = on ? 'Summarizing…' : 'Summarize text';
+}
+
+function showError(msg) {
+  const box = document.getElementById('error-box');
+  box.textContent = msg;
+  box.style.display = 'block';
+}
+
+function hideError() {
+  document.getElementById('error-box').style.display = 'none';
+}
+
+function toggleFaq(el) {
+  const ans = el.nextElementSibling;
+  const open = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-q span').forEach(s => s.textContent = '+');
+  if (!open) { ans.classList.add('open'); el.querySelector('span').textContent = '−'; }
+}
+</script>
+</body>
+</html>
