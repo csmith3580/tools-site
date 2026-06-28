@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5636968470914552" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Tone Detector — Ignitool | Detect Text Tone Instantly</title>
+<meta name="description" content="Free AI tone detector. Paste any text and instantly detect its tone — professional, casual, aggressive, friendly, and more. Get rewrite suggestions. No sign-up.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Free AI Tone Detector — Ignitool">
+<meta property="og:description" content="Detect the tone of any text instantly. Get a tone score, analysis, and rewrite suggestions. Free AI tool, no sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0f0f0f;--ink2:#444;--muted:#888;--border:#e4e4e4;--bg:#fafaf8;--surface:#fff;--accent:#2563eb;--accent-light:#eff4ff;--green:#16a34a;--green-light:#f0fdf4;--red:#dc2626;--red-light:#fef2f2;--amber:#c2410c;--amber-light:#fff7ed;--purple:#7c3aed;--purple-light:#f5f3ff;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.07)}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6}
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--ink);text-decoration:none;letter-spacing:-.5px}
+  .logo span{color:var(--accent)}
+  .breadcrumb{font-size:13px;color:var(--muted)}
+  .breadcrumb a{color:var(--accent);text-decoration:none}
+  .page{max-width:860px;margin:0 auto;padding:48px 24px 80px}
+  .eyebrow{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,5vw,42px);font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
+  .subtitle{font-size:16px;color:var(--ink2);margin-bottom:32px}
+  .ad-zone{background:#f5f5f5;border:1px dashed #ccc;border-radius:var(--radius);text-align:center;font-size:12px;color:var(--muted);margin-bottom:32px;height:90px;display:flex;align-items:center;justify-content:center}
+  .tool-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:24px}
+  .input-wrap{padding:20px}
+  .form-row{margin-bottom:14px}
+  label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:block;margin-bottom:6px}
+  textarea{width:100%;min-height:180px;padding:16px;border:1px solid var(--border);border-radius:var(--radius);resize:vertical;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:var(--surface);outline:none;line-height:1.7;transition:border-color .15s;display:block}
+  textarea:focus{border-color:var(--accent)}
+  textarea::placeholder{color:var(--muted)}
+  .context-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+  .ctx-btn{font-size:12px;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink2);font-family:'Inter',sans-serif;transition:all .12s}
+  .ctx-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .submit-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .submit-btn{font-size:14px;font-weight:600;padding:11px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:8px;transition:opacity .15s}
+  .submit-btn:hover{opacity:.9}
+  .submit-btn:disabled{opacity:.5;cursor:not-allowed}
+  .clear-btn{font-size:13px;padding:11px 18px;border-radius:var(--radius);border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);font-family:'Inter',sans-serif}
+  .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .error-box{display:none;padding:12px 16px;background:var(--red-light);border:1px solid #fca5a5;border-radius:var(--radius);font-size:13px;color:var(--red);margin:0 20px 16px}
+  .output-wrap{display:none;border-top:1px solid var(--border);padding:20px}
+  /* TONE RESULT */
+  .tone-result{display:flex;align-items:center;gap:16px;padding:20px;border-radius:12px;margin-bottom:20px;flex-wrap:wrap}
+  .tone-emoji{font-size:48px;line-height:1}
+  .tone-info{flex:1;min-width:200px}
+  .tone-label{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px}
+  .tone-sub{font-size:13px;color:var(--ink2);margin-bottom:8px}
+  .confidence-row{display:flex;align-items:center;gap:8px}
+  .conf-bar-track{flex:1;height:6px;background:rgba(255,255,255,.4);border-radius:3px;overflow:hidden;max-width:180px}
+  .conf-bar-fill{height:100%;border-radius:3px;background:rgba(255,255,255,.9)}
+  .conf-label{font-size:12px;font-weight:600;opacity:.8}
+  /* TONE BREAKDOWN */
+  .breakdown-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+  .breakdown-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;text-align:center}
+  .breakdown-name{font-size:12px;color:var(--muted);margin-bottom:4px}
+  .breakdown-score{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:4px}
+  .breakdown-bar{height:4px;border-radius:2px;background:var(--border);overflow:hidden}
+  .breakdown-fill{height:100%;border-radius:2px}
+  /* ANALYSIS */
+  .analysis-card{background:#fafaf8;border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:20px}
+  .analysis-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px}
+  .analysis-text{font-size:14px;color:var(--ink2);line-height:1.7}
+  .analysis-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .analysis-tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--accent-light);color:var(--accent);font-weight:500}
+  /* REWRITES */
+  .rewrites-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:12px}
+  .rewrite-card{border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px;transition:border-color .15s}
+  .rewrite-card:hover{border-color:var(--accent)}
+  .rewrite-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .rewrite-tone-label{font-size:12px;font-weight:600}
+  .copy-rewrite-btn{font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--accent);font-family:'Inter',sans-serif}
+  .copy-rewrite-btn:hover{background:var(--accent-light)}
+  .rewrite-text{font-size:14px;color:var(--ink2);line-height:1.7}
+  .faq{margin-bottom:48px}
+  .faq h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:20px;color:var(--ink)}
+  .faq-item{border-top:1px solid var(--border);padding:16px 0}
+  .faq-item:last-child{border-bottom:1px solid var(--border)}
+  .faq-q{font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+  .faq-q span{color:var(--muted);font-size:18px;font-weight:400}
+  .faq-a{font-size:14px;color:var(--ink2);line-height:1.65;display:none;margin-top:8px}
+  .faq-a.open{display:block}
+  .related-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;margin-bottom:14px;color:var(--ink)}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:48px}
+  .related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;text-decoration:none;display:block;transition:border-color .15s}
+  .related-card:hover{border-color:var(--accent)}
+  .related-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
+  .related-desc{font-size:12px;color:var(--muted)}
+  footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center}
+  footer p{font-size:13px;color:var(--muted)}
+  .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:10px;flex-wrap:wrap}
+  .footer-links a{font-size:13px;color:var(--muted);text-decoration:none}
+  .footer-links a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">Igni<span>tool</span></a>
+  <span class="breadcrumb"><a href="/">Home</a> / AI Tone Detector</span>
+</nav>
+<div class="page">
+  <div class="eyebrow">AI Writing Tool — Free, No Sign-Up</div>
+  <h1>AI Tone Detector</h1>
+  <p class="subtitle">Paste any text — email, message, article, or post — and instantly detect its tone with a full breakdown and rewrite suggestions.</p>
+  <div class="ad-zone">[ Google AdSense — 728×90 Leaderboard — Replace with your AdSense code ]</div>
+  <div class="tool-card">
+    <div class="input-wrap">
+      <div class="form-row">
+        <label>Your text</label>
+        <textarea id="input" placeholder="Paste an email, message, blog post, social caption, or any text to detect its tone…" autofocus></textarea>
+      </div>
+      <label style="margin-bottom:8px">Context (helps accuracy)</label>
+      <div class="context-row" id="context-row">
+        <button class="ctx-btn active" data-ctx="general">General</button>
+        <button class="ctx-btn" data-ctx="email">Email</button>
+        <button class="ctx-btn" data-ctx="social media post">Social media</button>
+        <button class="ctx-btn" data-ctx="business communication">Business</button>
+        <button class="ctx-btn" data-ctx="customer service">Customer service</button>
+        <button class="ctx-btn" data-ctx="marketing copy">Marketing</button>
+      </div>
+      <div class="submit-row">
+        <button class="submit-btn" id="submit-btn" onclick="detectTone()">
+          <div class="spinner" id="spinner"></div>
+          <span id="btn-text">Detect tone</span>
+        </button>
+        <button class="clear-btn" onclick="clearAll()">Clear</button>
+      </div>
+    </div>
+    <div class="error-box" id="error-box"></div>
+    <div class="output-wrap" id="output-wrap">
+      <div class="tone-result" id="tone-result"></div>
+      <div class="breakdown-grid" id="breakdown-grid"></div>
+      <div class="analysis-card" id="analysis-card"></div>
+      <div class="rewrites-title">Rewrite suggestions</div>
+      <div id="rewrites-list"></div>
+    </div>
+  </div>
+  <div class="ad-zone">[ Google AdSense — 300×250 Rectangle — Replace with your AdSense code ]</div>
+  <div class="faq">
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is a tone detector? <span>+</span></div>
+      <div class="faq-a">A tone detector analyzes written text and identifies its emotional quality — whether it sounds professional, friendly, aggressive, formal, casual, or something else. AI tone detectors go beyond keyword matching to understand the overall feel and intent of writing, helping you ensure your message lands the way you intend.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why does tone matter in writing? <span>+</span></div>
+      <div class="faq-a">Tone is what your reader feels when they read your writing — even when you don't intend a particular tone. An email intended to be direct can read as rude. A message meant to be casual can seem unprofessional. Checking tone before sending important communications helps you avoid misunderstandings, especially in written contexts where body language and vocal inflection are absent.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What tones can this detector identify? <span>+</span></div>
+      <div class="faq-a">Our AI tone detector identifies a wide range of tones including: professional, formal, casual, friendly, enthusiastic, confident, aggressive, passive-aggressive, sarcastic, empathetic, neutral, and more. It also rates your text across specific dimensions like formality, positivity, assertiveness, and clarity.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is this tone detector free? <span>+</span></div>
+      <div class="faq-a">Yes, completely free with no sign-up required. Analyze as many pieces of text as you need. Ignitool is supported by advertising to keep all tools free for everyone.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I use this for emails before sending? <span>+</span></div>
+      <div class="faq-a">Yes — this is one of the most common use cases. Before sending an important email (to a client, boss, or difficult situation), paste it here to verify the tone lands as intended. The rewrite suggestions let you adjust to a more professional, friendly, or assertive tone with one click.</div>
+    </div>
+  </div>
+  <div class="related-title">Related tools</div>
+  <div class="related-grid">
+    <a class="related-card" href="grammar-checker.html"><div class="related-name">AI Grammar Checker</div><div class="related-desc">Fix grammar and spelling instantly</div></a>
+    <a class="related-card" href="paraphrasing-tool.html"><div class="related-name">AI Paraphrasing Tool</div><div class="related-desc">Rewrite in any tone</div></a>
+    <a class="related-card" href="ai-text-summarizer.html"><div class="related-name">AI Text Summarizer</div><div class="related-desc">Condense any text instantly</div></a>
+    <a class="related-card" href="email-subject-generator.html"><div class="related-name">Email Subject Generator</div><div class="related-desc">5 high-converting subject lines</div></a>
+  </div>
+</div>
+<footer>
+  <div class="footer-links"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of use</a><a href="/contact.html">Contact</a></div>
+  <p>© 2026 Ignitool. Free AI tools. Ignite your productivity.</p>
+</footer>
+<script>
+const PROXY_URL = 'https://ignitool-proxy.csmith3580.workers.dev/';
+let selectedContext = 'general';
+let toneResult = null;
+
+document.getElementById('context-row').addEventListener('click', e => {
+  const btn = e.target.closest('.ctx-btn');
+  if (!btn) return;
+  document.querySelectorAll('.ctx-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedContext = btn.dataset.ctx;
+});
+
+const toneStyles = {
+  professional:{bg:'#eff4ff',color:'#1e40af',emoji:'👔'},
+  formal:{bg:'#f5f3ff',color:'#5b21b6',emoji:'📋'},
+  casual:{bg:'#f0fdf4',color:'#15803d',emoji:'😊'},
+  friendly:{bg:'#fef9c3',color:'#854d0e',emoji:'🤝'},
+  enthusiastic:{bg:'#fff7ed',color:'#c2410c',emoji:'🔥'},
+  confident:{bg:'#eff4ff',color:'#1e40af',emoji:'💪'},
+  aggressive:{bg:'#fef2f2',color:'#b91c1c',emoji:'⚡'},
+  passive:{bg:'#f9fafb',color:'#6b7280',emoji:'😶'},
+  empathetic:{bg:'#fdf4ff',color:'#7e22ce',emoji:'💜'},
+  sarcastic:{bg:'#fef3c7',color:'#92400e',emoji:'🙃'},
+  neutral:{bg:'#f9fafb',color:'#374151',emoji:'⚖️'},
+  urgent:{bg:'#fff7ed',color:'#c2410c',emoji:'🚨'},
+};
+
+function getToneStyle(tone) {
+  const key = Object.keys(toneStyles).find(k => tone.toLowerCase().includes(k)) || 'neutral';
+  return toneStyles[key];
+}
+
+async function detectTone() {
+  const text = document.getElementById('input').value.trim();
+  if (text.length < 20) { showError('Please paste at least 20 characters of text.'); return; }
+  setLoading(true); hideError();
+  document.getElementById('output-wrap').style.display = 'none';
+
+  const prompt = `Analyze the tone of the following text in the context of ${selectedContext}.
+
+Text:
+"""
+${text}
+"""
+
+Return ONLY a JSON object with this exact structure:
+{
+  "primary_tone": "one word or short phrase (e.g. Professional, Casual, Friendly, Aggressive, Formal, Enthusiastic)",
+  "confidence": 85,
+  "summary": "2-3 sentence explanation of why this tone was detected and how it might be perceived",
+  "tone_dimensions": {
+    "formality": 75,
+    "positivity": 60,
+    "assertiveness": 50,
+    "clarity": 80,
+    "warmth": 40
+  },
+  "key_signals": ["phrase or word that signals this tone", "another signal", "third signal"],
+  "rewrites": [
+    {"tone": "More professional", "text": "rewritten version here"},
+    {"tone": "More friendly", "text": "rewritten version here"},
+    {"tone": "More direct", "text": "rewritten version here"}
+  ]
+}
+All dimension scores are 0-100. No markdown, no explanations, just the JSON.`;
+
+  try {
+    const res = await fetch(PROXY_URL, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1500,messages:[{role:'user',content:prompt}]})
+    });
+    if (!res.ok) throw new Error('API error — please try again.');
+    const data = await res.json();
+    let raw = data.content[0].text.trim().replace(/```json|```/g,'').trim();
+    toneResult = JSON.parse(raw);
+    renderResult();
+  } catch(e) { showError(e.message || 'Something went wrong. Please try again.'); }
+  finally { setLoading(false); }
+}
+
+function renderResult() {
+  const r = toneResult;
+  const style = getToneStyle(r.primary_tone);
+
+  // Main tone result
+  document.getElementById('tone-result').style.cssText = `background:${style.bg};border-radius:12px;padding:20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap`;
+  document.getElementById('tone-result').innerHTML = `
+    <div style="font-size:52px;line-height:1">${style.emoji}</div>
+    <div style="flex:1;min-width:200px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:${style.color};margin-bottom:4px">${r.primary_tone}</div>
+      <div style="font-size:13px;color:${style.color};opacity:.8;margin-bottom:10px">Detected tone</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="flex:1;height:6px;background:rgba(0,0,0,.1);border-radius:3px;overflow:hidden;max-width:160px">
+          <div style="height:100%;width:${r.confidence}%;background:${style.color};border-radius:3px"></div>
+        </div>
+        <span style="font-size:12px;font-weight:600;color:${style.color}">${r.confidence}% confidence</span>
+      </div>
+    </div>`;
+
+  // Dimensions
+  const dims = r.tone_dimensions || {};
+  const dimNames = {formality:'Formality',positivity:'Positivity',assertiveness:'Assertiveness',clarity:'Clarity',warmth:'Warmth'};
+  const dimColors = {formality:'#2563eb',positivity:'#16a34a',assertiveness:'#c2410c',clarity:'#7c3aed',warmth:'#db2777'};
+  document.getElementById('breakdown-grid').innerHTML = Object.entries(dims).map(([k,v]) => `
+    <div class="breakdown-item">
+      <div class="breakdown-name">${dimNames[k]||k}</div>
+      <div class="breakdown-score" style="color:${dimColors[k]||'#374151'}">${v}</div>
+      <div class="breakdown-bar"><div class="breakdown-fill" style="width:${v}%;background:${dimColors[k]||'#374151'}"></div></div>
+    </div>`).join('');
+
+  // Analysis
+  document.getElementById('analysis-card').innerHTML = `
+    <div class="analysis-title">Why this tone was detected</div>
+    <div class="analysis-text">${r.summary}</div>
+    ${r.key_signals ? `<div class="analysis-tags">${r.key_signals.map(s=>`<span class="analysis-tag">"${s}"</span>`).join('')}</div>` : ''}`;
+
+  // Rewrites
+  const rewriteColors = ['#2563eb','#16a34a','#c2410c'];
+  document.getElementById('rewrites-list').innerHTML = (r.rewrites||[]).map((rw,i) => `
+    <div class="rewrite-card">
+      <div class="rewrite-header">
+        <span class="rewrite-tone-label" style="color:${rewriteColors[i]||'#374151'}">${rw.tone}</span>
+        <button class="copy-rewrite-btn" onclick="copyRewrite(${i})">Copy</button>
+      </div>
+      <div class="rewrite-text">${rw.text}</div>
+    </div>`).join('');
+
+  document.getElementById('output-wrap').style.display = 'block';
+}
+
+function copyRewrite(i) {
+  navigator.clipboard.writeText(toneResult.rewrites[i].text).then(() => {
+    const btns = document.querySelectorAll('.copy-rewrite-btn');
+    btns[i].textContent = '✓ Copied!';
+    setTimeout(() => btns[i].textContent = 'Copy', 2000);
+  });
+}
+
+function clearAll() {
+  document.getElementById('input').value='';
+  document.getElementById('output-wrap').style.display='none';
+  hideError();
+}
+function setLoading(on){document.getElementById('submit-btn').disabled=on;document.getElementById('spinner').style.display=on?'block':'none';document.getElementById('btn-text').textContent=on?'Detecting…':'Detect tone';}
+function showError(msg){const b=document.getElementById('error-box');b.textContent=msg;b.style.display='block';}
+function hideError(){document.getElementById('error-box').style.display='none';}
+function toggleFaq(el){const ans=el.nextElementSibling;const open=ans.classList.contains('open');document.querySelectorAll('.faq-a').forEach(a=>a.classList.remove('open'));document.querySelectorAll('.faq-q span').forEach(s=>s.textContent='+');if(!open){ans.classList.add('open');el.querySelector('span').textContent='−';}}
+</script>
+</body>
+</html>
