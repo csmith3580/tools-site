@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5636968470914552"
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5636968470914552"
      crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-040F0W38RQ"></script>
@@ -306,24 +306,41 @@ async function summarize() {
   document.getElementById('output-wrap').style.display = 'none';
 
   try {
-    const response = await fetch(PROXY_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: buildPrompt(text) }]
-      })
-    });
-
-    if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error?.message || 'API error — please try again.');
+    let response;
+    try {
+      response = await fetch(PROXY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          messages: [{ role: 'user', content: buildPrompt(text) }]
+        })
+      });
+    } catch (networkErr) {
+      throw new Error('Connection error — please check your internet and try again.');
     }
 
-    const data = await response.json();
+    if (!response.ok) {
+      let errMsg = 'Something went wrong — please try again.';
+      try {
+        const err = await response.json();
+        errMsg = err.error?.message || errMsg;
+      } catch {}
+      throw new Error(errMsg);
+    }
+
+    let data;
+    try {
+      data = await response.json();
+    } catch {
+      throw new Error('Unexpected response from the AI. Please try again.');
+    }
+
+    if (!data.content || !data.content[0] || !data.content[0].text) {
+      throw new Error('The AI returned an empty response. Please try again with different text.');
+    }
+
     const summary = data.content[0].text.trim();
 
     // Render output
