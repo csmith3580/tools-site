@@ -128,6 +128,26 @@
   .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:10px;flex-wrap:wrap}
   .footer-links a{font-size:13px;color:var(--muted);text-decoration:none}
   .footer-links a:hover{color:var(--ink)}
+
+  /* Rich content sections */
+  .rich-content { margin-bottom: 48px; }
+  .content-section { margin-bottom: 36px; }
+  .content-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 14px; letter-spacing: -.01em; }
+  .content-section p { font-size: 15px; color: var(--ink2); line-height: 1.75; margin-bottom: 12px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 8px; }
+  .step-item { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .step-item .step-num { min-width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light); color: var(--accent); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-item strong { font-size: 14px; color: var(--ink); display: block; margin-bottom: 4px; }
+  .step-item p { font-size: 13px; color: var(--ink2); line-height: 1.5; margin: 0; }
+  .use-cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 8px; }
+  .use-case { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .use-case-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+  .use-case strong { font-size: 14px; color: var(--ink); display: block; margin-bottom: 6px; }
+  .use-case p { font-size: 13px; color: var(--ink2); line-height: 1.55; margin: 0; }
+  .seo-section { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 20px 24px; margin-top: 8px; }
+  .seo-section h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .seo-section p { font-size: 14px; color: var(--ink2); line-height: 1.75; margin: 0; }
+
 </style>
 <link rel="canonical" href="https://ignitool.com/tools/grammar-checker">
 </head>
@@ -142,6 +162,40 @@
   <div class="eyebrow">AI Writing Tool — Free, No Sign-Up</div>
   <h1>AI Grammar Checker</h1>
   <p class="subtitle">Paste your text — get grammar errors, spelling mistakes, and style issues identified and fixed in seconds. Powered by AI.</p>
+
+  
+  <!-- Rich Content Section -->
+  <div class="rich-content">
+    <div class="content-section">
+      <h2>What is an AI Grammar Checker?</h2>
+      <p>An AI grammar checker analyzes your writing for grammatical errors, spelling mistakes, punctuation issues, and style problems — then explains what went wrong and how to fix it. Unlike basic spell checkers built into word processors, an AI grammar checker understands context and catches errors that simple tools miss.</p>
+      <p>Our free AI grammar checker reviews your text for grammar errors including subject-verb agreement, tense consistency, misplaced modifiers, and run-on sentences. It also checks spelling, punctuation, and style clarity — giving you a comprehensive writing score and a fully corrected version of your text.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Use This Tool</h2>
+      <div class="steps-grid">
+        <div class="step-item"><div class="step-num">1</div><div><strong>Enter your details</strong><p>Fill in the input fields with your specific information — topic, keyword, audience, or whatever the tool requires.</p></div></div>
+        <div class="step-item"><div class="step-num">2</div><div><strong>Choose your options</strong><p>Select your preferred style, tone, length, or platform from the available options to customize the output.</p></div></div>
+        <div class="step-item"><div class="step-num">3</div><div><strong>Generate your content</strong><p>Click the generate button and let the AI produce multiple high-quality options in seconds.</p></div></div>
+        <div class="step-item"><div class="step-num">4</div><div><strong>Copy and use</strong><p>Click any result to copy it instantly. Paste directly into your document, email, website, or application.</p></div></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Who Uses This Tool?</h2>
+      <div class="use-cases-grid">
+        <div class="use-case"><span class="use-case-icon">🎓</span><strong>Students & academics</strong><p>Proofread essays, research papers, and assignments before submission. Catch grammar errors that affect your grade and learn from detailed explanations of each mistake.</p></div><div class="use-case"><span class="use-case-icon">✍️</span><strong>Writers & bloggers</strong><p>Polish articles, blog posts, and creative writing before publishing. Eliminate errors that undermine your credibility and distract readers from your content.</p></div><div class="use-case"><span class="use-case-icon">📧</span><strong>Business professionals</strong><p>Ensure emails, reports, proposals, and presentations are error-free before sending to clients, colleagues, or executives.</p></div><div class="use-case"><span class="use-case-icon">🌍</span><strong>Non-native English speakers</strong><p>Identify and understand common grammatical patterns in English. Learn the rules of grammar through practical corrections on your own writing.</p></div><div class="use-case"><span class="use-case-icon">💼</span><strong>Job seekers</strong><p>Proofread cover letters and resumes before applying. A single grammar error can disqualify an otherwise strong application.</p></div><div class="use-case"><span class="use-case-icon">📱</span><strong>Content creators</strong><p>Check social media captions, video scripts, and marketing copy for errors that could damage your brand's professional image.</p></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Why Grammar Matters in Professional Writing</h2>
+      <div class="seo-section">
+        <p>Research consistently shows that grammar and spelling errors significantly damage professional credibility. Studies have found that over 59% of consumers would not use a company with obvious grammatical errors on their website. For job seekers, a single typo on a resume can result in rejection. For businesses, poor grammar in marketing materials reduces conversion rates and erodes customer trust. Our free AI grammar checker helps ensure your writing always makes the right impression — whether you're sending an important email, publishing a blog post, or submitting an academic paper.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="ad-zone">[ Google AdSense — 728×90 Leaderboard — Replace with your AdSense code ]</div>
 
