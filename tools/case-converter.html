@@ -99,6 +99,26 @@
   .footer-links a:hover { color: var(--ink); }
 
   @media(max-width:600px){ .case-grid{grid-template-columns:1fr;} .all-name{width:90px;} }
+
+  /* Rich content sections */
+  .rich-content { margin-bottom: 48px; }
+  .content-section { margin-bottom: 36px; }
+  .content-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 14px; letter-spacing: -.01em; }
+  .content-section p { font-size: 15px; color: var(--ink2); line-height: 1.75; margin-bottom: 12px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 8px; }
+  .step-item { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .step-item .step-num { min-width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light); color: var(--accent); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-item strong { font-size: 14px; color: var(--ink); display: block; margin-bottom: 4px; }
+  .step-item p { font-size: 13px; color: var(--ink2); line-height: 1.5; margin: 0; }
+  .use-cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 8px; }
+  .use-case { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .use-case-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+  .use-case strong { font-size: 14px; color: var(--ink); display: block; margin-bottom: 6px; }
+  .use-case p { font-size: 13px; color: var(--ink2); line-height: 1.55; margin: 0; }
+  .seo-section { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 20px 24px; margin-top: 8px; }
+  .seo-section h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .seo-section p { font-size: 14px; color: var(--ink2); line-height: 1.75; margin: 0; }
+
 </style>
 <link rel="canonical" href="https://ignitool.com/tools/case-converter">
 </head>
@@ -116,7 +136,39 @@
 
   <div class="ad-zone">[ Google AdSense — 728×90 Top Banner — Replace with your AdSense code ]</div>
 
-  <!-- INPUT -->
+
+  <!-- Rich Content Section -->
+  <div class="rich-content">
+    <div class="content-section">
+      <h2>What is a Case Converter?</h2>
+      <p>A case converter transforms text between different letter case formats instantly. Whether you need to fix accidentally capitalized text, convert variable names between programming conventions, format headings consistently, or prepare text for specific style guides — a case converter handles all of it in one click.</p>
+      <p>Our free case converter supports 8 different case formats, all processing instantly in your browser. Simply paste your text, and all 8 converted versions appear simultaneously. Click any result to copy it directly to your clipboard.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Use the Case Converter</h2>
+      <div class="steps-grid">
+        <div class="step-item"><div class="step-num">1</div><div><strong>Paste your text</strong><p>Type or paste any text into the input box. You can paste multiple sentences, paragraphs, or even code variable names.</p></div></div>
+        <div class="step-item"><div class="step-num">2</div><div><strong>All formats appear instantly</strong><p>All 8 case formats generate simultaneously — no need to select a format first. See UPPERCASE, lowercase, Title Case, camelCase, and more all at once.</p></div></div>
+        <div class="step-item"><div class="step-num">3</div><div><strong>Click to copy</strong><p>Click any case format card to copy that version to your clipboard instantly. The card turns green to confirm the copy was successful.</p></div></div>
+        <div class="step-item"><div class="step-num">4</div><div><strong>Paste anywhere</strong><p>Paste the converted text directly into your document, code editor, email, or any other application.</p></div></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>When to Use Each Case Format</h2>
+      <div class="use-cases-grid">
+        <div class="use-case"><div class="use-case-icon">🔠</div><strong>UPPERCASE</strong><p>Used for acronyms, headers requiring strong emphasis, legal documents, and constants in programming. Example: NASA, HTML, MAX_VALUE.</p></div>
+        <div class="use-case"><div class="use-case-icon">🔡</div><strong>lowercase</strong><p>Standard for body text, email addresses, URLs, CSS class names, and most programming variable names in Python and Ruby.</p></div>
+        <div class="use-case"><div class="use-case-icon">📝</div><strong>Title Case</strong><p>Used for article headlines, book titles, movie titles, and product names. Every major word is capitalized.</p></div>
+        <div class="use-case"><div class="use-case-icon">💻</div><strong>camelCase</strong><p>Standard naming convention in JavaScript, Java, and TypeScript for variables and functions. Example: myVariableName, getUserData.</p></div>
+        <div class="use-case"><div class="use-case-icon">🐍</div><strong>snake_case</strong><p>Standard in Python, Ruby, and SQL for variable names, function names, and database column names. Example: user_first_name.</p></div>
+        <div class="use-case"><div class="use-case-icon">🔗</div><strong>kebab-case</strong><p>Standard for CSS class names, HTML attributes, and URL slugs. Search engines treat hyphens as word separators, making this ideal for SEO-friendly URLs.</p></div>
+      </div>
+    </div>
+  </div>
+
+    <!-- INPUT -->
   <div class="input-section">
     <div class="input-label">Your text</div>
     <textarea id="input" placeholder="Paste your text here — e.g. 'the quick brown fox jumps over the lazy dog'" autofocus></textarea>
