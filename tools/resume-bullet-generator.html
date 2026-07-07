@@ -88,6 +88,26 @@
   .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:10px;flex-wrap:wrap}
   .footer-links a{font-size:13px;color:var(--muted);text-decoration:none}
   .footer-links a:hover{color:var(--ink)}
+
+  /* Rich content sections */
+  .rich-content { margin-bottom: 48px; }
+  .content-section { margin-bottom: 36px; }
+  .content-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 14px; letter-spacing: -.01em; }
+  .content-section p { font-size: 15px; color: var(--ink2); line-height: 1.75; margin-bottom: 12px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 8px; }
+  .step-item { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .step-item .step-num { min-width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light); color: var(--accent); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-item strong { font-size: 14px; color: var(--ink); display: block; margin-bottom: 4px; }
+  .step-item p { font-size: 13px; color: var(--ink2); line-height: 1.5; margin: 0; }
+  .use-cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 8px; }
+  .use-case { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .use-case-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+  .use-case strong { font-size: 14px; color: var(--ink); display: block; margin-bottom: 6px; }
+  .use-case p { font-size: 13px; color: var(--ink2); line-height: 1.55; margin: 0; }
+  .seo-section { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 20px 24px; margin-top: 8px; }
+  .seo-section h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .seo-section p { font-size: 14px; color: var(--ink2); line-height: 1.75; margin: 0; }
+
 </style>
 <link rel="canonical" href="https://ignitool.com/tools/resume-bullet-generator">
 </head>
@@ -100,6 +120,40 @@
   <div class="eyebrow">AI Career Tool — Free, No Sign-Up</div>
   <h1>Resume Bullet Point Generator</h1>
   <p class="subtitle">Enter your job title and what you did — get 5 strong, ATS-optimized resume bullets with powerful action verbs and metrics.</p>
+  
+  <!-- Rich Content Section -->
+  <div class="rich-content">
+    <div class="content-section">
+      <h2>What is a Resume Bullet Point Generator?</h2>
+      <p>A resume bullet point generator creates strong, ATS-optimized bullet points for your work experience section based on your job title and responsibilities. Resume bullets are the core of any resume — they communicate what you accomplished in each role, demonstrate your value to employers, and determine whether automated applicant tracking systems route your application to a human reviewer or reject it automatically.</p>
+      <p>Our free AI resume bullet generator produces five unique, achievement-focused bullet points for every role, each starting with a powerful action verb and following the CAR formula — Challenge, Action, Result. The output includes specific metrics and quantified impact wherever possible, which research consistently shows produces significantly higher interview callback rates.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Use This Tool</h2>
+      <div class="steps-grid">
+        <div class="step-item"><div class="step-num">1</div><div><strong>Enter your details</strong><p>Fill in the input fields with your specific information — topic, keyword, audience, or whatever the tool requires.</p></div></div>
+        <div class="step-item"><div class="step-num">2</div><div><strong>Choose your options</strong><p>Select your preferred style, tone, length, or platform from the available options to customize the output.</p></div></div>
+        <div class="step-item"><div class="step-num">3</div><div><strong>Generate your content</strong><p>Click the generate button and let the AI produce multiple high-quality options in seconds.</p></div></div>
+        <div class="step-item"><div class="step-num">4</div><div><strong>Copy and use</strong><p>Click any result to copy it instantly. Paste directly into your document, email, website, or application.</p></div></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Who Uses This Tool?</h2>
+      <div class="use-cases-grid">
+        <div class="use-case"><span class="use-case-icon">👔</span><strong>Active job seekers</strong><p>Transform vague job descriptions into powerful achievement statements that communicate your real impact and differentiate you from other candidates with similar experience.</p></div><div class="use-case"><span class="use-case-icon">🎓</span><strong>Recent graduates</strong><p>Convert internship, part-time, and academic project experience into professional resume language that demonstrates value to entry-level employers.</p></div><div class="use-case"><span class="use-case-icon">💼</span><strong>Career changers</strong><p>Reframe your experience in the language and achievement framing of your target industry to make your background relevant to hiring managers in a new field.</p></div><div class="use-case"><span class="use-case-icon">🚀</span><strong>Professionals returning to work</strong><p>Refresh outdated resume bullets with modern achievement framing that reflects current hiring standards and ATS requirements.</p></div><div class="use-case"><span class="use-case-icon">📋</span><strong>Resume writers & career coaches</strong><p>Generate strong draft bullets quickly and spend your time refining and personalizing rather than writing every bullet from scratch for each client.</p></div><div class="use-case"><span class="use-case-icon">🌍</span><strong>International professionals</strong><p>Create resume bullets that follow the achievement-focused format expected by employers in competitive English-speaking job markets.</p></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>How Resume Bullets Impact Your Job Search</h2>
+      <div class="seo-section">
+        <p>Over 99% of Fortune 500 companies use Applicant Tracking Systems to screen resumes before a human reviewer ever sees them. These systems scan for keywords, action verbs, and achievement language — resumes that lack these elements are often automatically rejected regardless of the candidate's qualifications. Beyond ATS, research by TheLadders shows that recruiters spend an average of just 7.4 seconds scanning a resume before deciding to read further or move on. Strong bullet points with clear achievement structure, specific numbers, and powerful action verbs capture attention in those 7 seconds and communicate competence instantly — dramatically increasing interview callback rates compared to responsibility-focused bullets that describe duties rather than accomplishments.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="ad-zone">[ Google AdSense — 728×90 Leaderboard — Replace with your AdSense code ]</div>
   <div class="tool-card">
     <div class="input-wrap">
